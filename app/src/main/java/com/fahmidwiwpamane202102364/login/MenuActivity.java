@@ -10,10 +10,9 @@ import android.widget.Button;
 public class MenuActivity extends AppCompatActivity
 {
 
-    private Button _tampilMahasiswaButton, _tampilForexButton;
-
-    private Button _tampilMahasiswaIntent;
-    private Intent _tampilForexIntent;
+    private Button _tampilMahasiswaButton;
+    private Button _tampilForexButton;
+    private Button _tampilCuacaButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +21,7 @@ public class MenuActivity extends AppCompatActivity
 
         initTampilMahasiswaButton();
         initTampilForexButton();
+        initTampilCuacaButton();
 
     }
 
@@ -41,15 +41,25 @@ public class MenuActivity extends AppCompatActivity
     private void initTampilForexButton()
     {
 
-        _tampilForexButton = (Button) findViewById(R.id.tampilForexButton);
+        _tampilForexButton = findViewById(R.id.tampilForexButton);
 
-        _tampilForexButton.setOnClickListener(new View.OnClickListener()
-        {
+        _tampilForexButton.setOnClickListener( new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                _tampilForexIntent = new Intent(getApplicationContext(), ForexMainActivity.class);
-                startActivity(_tampilForexIntent);
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ForexMainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    private void initTampilCuacaButton()
+    {
+        _tampilCuacaButton = findViewById(R.id.tampilCuacaButton);
+
+        _tampilCuacaButton.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CuacaMainActivity.class);
+                startActivity(intent);
             }
         });
     }

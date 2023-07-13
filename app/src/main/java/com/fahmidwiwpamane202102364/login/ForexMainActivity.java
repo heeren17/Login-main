@@ -19,15 +19,15 @@ import cz.msebera.android.httpclient.Header;
 
 public class ForexMainActivity extends AppCompatActivity {
     private ProgressBar loadingProgressBar;
-    private SwipeRefreshLayout swipeRefreshLayout;
+    private SwipeRefreshLayout swipeRefreshLayout1;
     private TextView audTextView, bndTextView, btcTextView, eurTextView, gbpTextView, hkdTextView, inrTextView, jpyTextView, myrTextView, usdTextView;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_forex_main);
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout1);
+        swipeRefreshLayout1 = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout1);
         audTextView = (TextView) findViewById(R.id.audTextView);
         bndTextView = (TextView) findViewById(R.id.bndTextView);
         btcTextView = (TextView) findViewById(R.id.btcTextView);
@@ -44,10 +44,10 @@ public class ForexMainActivity extends AppCompatActivity {
         initForex();
     }
     private void initSwipeRefreshLayout(){
-        swipeRefreshLayout.setOnRefreshListener(() -> {
+        swipeRefreshLayout1.setOnRefreshListener(() -> {
             initForex();
 
-            swipeRefreshLayout.setRefreshing(false);
+            swipeRefreshLayout1.setRefreshing(false);
         });
     }
 
